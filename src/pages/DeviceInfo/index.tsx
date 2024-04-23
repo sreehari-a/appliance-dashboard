@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Breadcrumb from "../../components/BreadCrumbs/BreadCrumbs";
 import { AppRoutes } from "../../constants/appConstants";
-import { CustomFetchCall, formatString } from "../../utils";
+import { CustomFetchCall } from "../../mocks/utils";
+import { formatString } from "../../utils";
 import { DeviceInfo } from "../Devices/types";
 import { DeviceDetails } from "./components/DeviceDetails";
 import { DeviceMonitoring } from "./components/DeviceMonitoring";
@@ -11,6 +12,11 @@ const DeviceInfoPage = () => {
   const [deviceInfo, setDeviceInfo] = useState<DeviceInfo | null>(null);
 
   const { deviceId = "" } = useParams();
+
+  const breadcrumbs = [
+    { title: "Devices", url: AppRoutes.DEVICES_LIST },
+    { title: deviceId, url: formatString(AppRoutes.DEVICE_INFO, deviceId) }
+  ];
 
   useEffect(() => {
     getData();
@@ -22,10 +28,6 @@ const DeviceInfoPage = () => {
     setDeviceInfo(data?.appliance);
   };
 
-  const breadcrumbs = [
-    { title: "Devices", url: AppRoutes.DEVICES_LIST },
-    { title: deviceId, url: formatString(AppRoutes.DEVICE_INFO, deviceId) },
-  ];
   return (
     <div>
       <Breadcrumb crumbs={breadcrumbs} />

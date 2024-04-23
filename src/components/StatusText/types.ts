@@ -1,4 +1,4 @@
 export interface StatusTextProps {
-    label?: string;
-    color?: string;
+  label?: string;
+  color?: string;
 }

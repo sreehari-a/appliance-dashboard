@@ -12,7 +12,7 @@ import {
   NavSection,
   PieImage,
   Tag,
-  TagCircle,
+  TagCircle
 } from "../styled";
 import { DeviceDetailsProps } from "../types";
 import DemandIcon from "../../../assets/Demand.svg";
@@ -26,20 +26,17 @@ export const TestIds = {
   THEATRE_NAME: "THEATRE_NAME",
   LOCATION: "LOCATION",
   TAG_CIRCLE: "TAG_CIRCLE",
-  TAG_LABEL: "TAG_LABEL",
+  TAG_LABEL: "TAG_LABEL"
 };
 
 export const DeviceDetails = ({ appliance }: DeviceDetailsProps) => {
-  const { location, serialNo, theatreName, deviceStatus, storage } =
-    appliance || {};
+  const { location, serialNo, theatreName, deviceStatus, storage } = appliance || {};
 
   const locationSubtitle = getLocationString(location);
+
   const config =
-    (deviceStatus &&
-      DeviceStatusConfig[
-        deviceStatus as keyof typeof DeviceStatusConfig
-      ]) ||
-      DeviceStatusConfig.DEFAULT;
+    (deviceStatus && DeviceStatusConfig[deviceStatus as keyof typeof DeviceStatusConfig]) || DeviceStatusConfig.DEFAULT;
+
   return (
     <HeaderCard>
       <DeviceDetailsSection>
@@ -58,20 +55,15 @@ export const DeviceDetails = ({ appliance }: DeviceDetailsProps) => {
         </HeaderTextContainer>
         <DataDisplay>
           <div data-testid={TestIds.THEATRE_NAME}>{theatreName}</div>
-          <DataDisplayLocation data-testid={TestIds.LOCATION}>
-            {locationSubtitle}
-          </DataDisplayLocation>
+          <DataDisplayLocation data-testid={TestIds.LOCATION}>{locationSubtitle}</DataDisplayLocation>
         </DataDisplay>
         <ButtonContainer height={"1.25rem"} gap={"0.5rem"}>
           <Tag>
-            <TagCircle
-              data-testid={TestIds.TAG_CIRCLE}
-              bgcolor={config?.color}
-            ></TagCircle>
+            <TagCircle data-testid={TestIds.TAG_CIRCLE} bgcolor={config?.color}></TagCircle>
             <span data-testid={TestIds.TAG_LABEL}>{config?.label}</span>
           </Tag>
           <Tag>
-            <PieImage src={PieIcon} alt="" height={10} />
+            <PieImage src={PieIcon} alt='' height={10} />
             <span>{storage}</span>
           </Tag>
         </ButtonContainer>

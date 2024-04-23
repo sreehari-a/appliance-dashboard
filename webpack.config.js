@@ -4,17 +4,17 @@ const __dirname = path.resolve();
 
 export default {
   mode: "development",
-  entry: path.resolve(__dirname, './src/main'),
+  entry: path.resolve(__dirname, "./src/main"),
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "./public"),
+    path: path.resolve(__dirname, "./public")
   },
   devServer: {
-    static: path.resolve(__dirname, './public'),
+    static: path.resolve(__dirname, "./public"),
     historyApiFallback: true
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"],
+    extensions: [".ts", ".tsx", ".js", ".jsx"]
   },
   module: {
     rules: [
@@ -25,10 +25,10 @@ export default {
           {
             loader: "ts-loader",
             options: {
-              transpileOnly: true,
-            },
-          },
-        ],
+              transpileOnly: true
+            }
+          }
+        ]
       },
       {
         test: /\.(?:js|mjs|cjs)$/,
@@ -36,20 +36,18 @@ export default {
         use: {
           loader: "babel-loader",
           options: {
-            presets: [["@babel/preset-env", { targets: "defaults" }]],
-          },
-        },
+            presets: [["@babel/preset-env", { targets: "defaults" }]]
+          }
+        }
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },{
+        use: ["style-loader", "css-loader"]
+      },
+      {
         test: /\.svg$/,
-        use: [
-          '@svgr/webpack',
-          'url-loader'
-        ]
+        use: ["@svgr/webpack", "url-loader"]
       }
-    ],
-  },
+    ]
+  }
 };

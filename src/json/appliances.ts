@@ -1,6 +1,6 @@
 import { BillingCycle, DeviceStatus, DownloadStatus } from "../constants/appConstants";
 
-export const appliances =  [
+export const appliances = [
   {
     serialNo: "JTD-512312",
     theatreName: "Kriplle Square",
@@ -13,7 +13,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Online,
     downloadStatus: DownloadStatus.Failed,
     osVersion: "5.2.1.3",
-    storage: "828 GB",
+    storage: "828 GB"
   },
   {
     serialNo: "JTD-512313",
@@ -27,7 +27,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Online,
     downloadStatus: DownloadStatus.Succeeded,
     osVersion: "5.2.1.4",
-    storage: "1 TB",
+    storage: "1 TB"
   },
   {
     serialNo: "JTD-512314",
@@ -41,7 +41,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Offline,
     downloadStatus: DownloadStatus.Cancelled,
     osVersion: "5.2.1.5",
-    storage: "2 TB",
+    storage: "2 TB"
   },
   {
     serialNo: "JTD-512315",
@@ -55,7 +55,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Online,
     downloadStatus: DownloadStatus.Downloading,
     osVersion: "5.2.1.6",
-    storage: "1.5 TB",
+    storage: "1.5 TB"
   },
   {
     serialNo: "JTD-512316",
@@ -69,7 +69,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Offline,
     downloadStatus: DownloadStatus.Failed,
     osVersion: "5.2.1.3",
-    storage: "1 TB",
+    storage: "1 TB"
   },
   {
     serialNo: "JTD-512317",
@@ -83,7 +83,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Online,
     downloadStatus: DownloadStatus.Succeeded,
     osVersion: "5.2.1.4",
-    storage: "1 TB",
+    storage: "1 TB"
   },
   {
     serialNo: "JTD-512318",
@@ -97,7 +97,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Offline,
     downloadStatus: DownloadStatus.Cancelled,
     osVersion: "5.2.1.5",
-    storage: "2 TB",
+    storage: "2 TB"
   },
   {
     serialNo: "JTD-512319",
@@ -111,7 +111,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Online,
     downloadStatus: DownloadStatus.Downloading,
     osVersion: "5.2.1.6",
-    storage: "1.5 TB",
+    storage: "1.5 TB"
   },
   {
     serialNo: "JTD-512320",
@@ -125,7 +125,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Offline,
     downloadStatus: DownloadStatus.Failed,
     osVersion: "5.2.1.3",
-    storage: "828 GB",
+    storage: "828 GB"
   },
   {
     serialNo: "JTD-512321",
@@ -139,7 +139,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Online,
     downloadStatus: DownloadStatus.Succeeded,
     osVersion: "5.2.1.4",
-    storage: "1 TB",
+    storage: "1 TB"
   },
   {
     serialNo: "JTD-512322",
@@ -153,7 +153,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Offline,
     downloadStatus: DownloadStatus.Cancelled,
     osVersion: "5.2.1.5",
-    storage: "2 TB",
+    storage: "2 TB"
   },
   {
     serialNo: "JTD-512323",
@@ -167,7 +167,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Online,
     downloadStatus: DownloadStatus.Downloading,
     osVersion: "5.2.1.6",
-    storage: "1.5 TB",
+    storage: "1.5 TB"
   },
   {
     serialNo: "JTD-512324",
@@ -181,7 +181,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Offline,
     downloadStatus: DownloadStatus.Failed,
     osVersion: "5.2.1.3",
-    storage: "1 TB",
+    storage: "1 TB"
   },
   {
     serialNo: "JTD-512325",
@@ -195,7 +195,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Online,
     downloadStatus: DownloadStatus.Succeeded,
     osVersion: "5.2.1.4",
-    storage: "1 TB",
+    storage: "1 TB"
   },
   {
     serialNo: "JTD-512326",
@@ -209,7 +209,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Offline,
     downloadStatus: DownloadStatus.Cancelled,
     osVersion: "5.2.1.5",
-    storage: "2 TB",
+    storage: "2 TB"
   },
   {
     serialNo: "JTD-512327",
@@ -223,7 +223,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Online,
     downloadStatus: DownloadStatus.Downloading,
     osVersion: "5.2.1.6",
-    storage: "1.5 TB",
+    storage: "1.5 TB"
   },
   {
     serialNo: "JTD-512328",
@@ -237,7 +237,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Offline,
     downloadStatus: DownloadStatus.Failed,
     osVersion: "5.2.1.3",
-    storage: "828 GB",
+    storage: "828 GB"
   },
   {
     serialNo: "JTD-512329",
@@ -251,7 +251,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Online,
     downloadStatus: DownloadStatus.Succeeded,
     osVersion: "5.2.1.4",
-    storage: "1 TB",
+    storage: "1 TB"
   },
   {
     serialNo: "JTD-512330",
@@ -265,7 +265,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Offline,
     downloadStatus: DownloadStatus.Cancelled,
     osVersion: "5.2.1.5",
-    storage: "2 TB",
+    storage: "2 TB"
   },
   {
     serialNo: "JTD-512331",
@@ -279,7 +279,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Online,
     downloadStatus: DownloadStatus.Downloading,
     osVersion: "5.2.1.6",
-    storage: "1.5 TB",
+    storage: "1.5 TB"
   },
   {
     serialNo: "JTD-512332",
@@ -293,7 +293,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Offline,
     downloadStatus: DownloadStatus.Failed,
     osVersion: "5.2.1.3",
-    storage: "1 TB",
+    storage: "1 TB"
   },
   {
     serialNo: "JTD-512333",
@@ -307,7 +307,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Online,
     downloadStatus: DownloadStatus.Succeeded,
     osVersion: "5.2.1.4",
-    storage: "1 TB",
+    storage: "1 TB"
   },
   {
     serialNo: "JTD-512334",
@@ -321,7 +321,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Offline,
     downloadStatus: DownloadStatus.Cancelled,
     osVersion: "5.2.1.5",
-    storage: "2 TB",
+    storage: "2 TB"
   },
   {
     serialNo: "JTD-512335",
@@ -335,7 +335,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Online,
     downloadStatus: DownloadStatus.Downloading,
     osVersion: "5.2.1.6",
-    storage: "1.5 TB",
+    storage: "1.5 TB"
   },
   {
     serialNo: "JTD-512336",
@@ -349,7 +349,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Offline,
     downloadStatus: DownloadStatus.Failed,
     osVersion: "5.2.1.3",
-    storage: "828 GB",
+    storage: "828 GB"
   },
   {
     serialNo: "JTD-512337",
@@ -363,7 +363,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Online,
     downloadStatus: DownloadStatus.Succeeded,
     osVersion: "5.2.1.4",
-    storage: "1 TB",
+    storage: "1 TB"
   },
   {
     serialNo: "JTD-512338",
@@ -377,7 +377,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Offline,
     downloadStatus: DownloadStatus.Cancelled,
     osVersion: "5.2.1.5",
-    storage: "2 TB",
+    storage: "2 TB"
   },
   {
     serialNo: "JTD-512339",
@@ -391,7 +391,7 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Online,
     downloadStatus: DownloadStatus.Downloading,
     osVersion: "5.2.1.6",
-    storage: "1.5 TB",
+    storage: "1.5 TB"
   },
   {
     serialNo: "JTD-512340",
@@ -405,6 +405,6 @@ export const appliances =  [
     deviceStatus: DeviceStatus.Offline,
     downloadStatus: DownloadStatus.Failed,
     osVersion: "5.2.1.3",
-    storage: "1 TB",
+    storage: "1 TB"
   }
 ];

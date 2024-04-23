@@ -3,16 +3,14 @@
   width: 100vw;
 }
 
-
 @font-face {
-  font-family: 'Commissioner';
-  src: url('../public/fonts/Commissioner-VariableFont_FLAR\,VOLM\,slnt\,wght.ttf') format('truetype');
+  font-family: "Commissioner";
+  src: url("../public/fonts/Commissioner-VariableFont_FLAR\,VOLM\,slnt\,wght.ttf") format("truetype");
 }
 body {
-  font-family: 'Commissioner', sans-serif;
-  background-color: #F6F8FA;
-  color: #2D3540;
-  ;
+  font-family: "Commissioner", sans-serif;
+  background-color: #f6f8fa;
+  color: #2d3540;
 }
 @keyframes logo-spin {
   from {
@@ -28,4 +26,3 @@ body {
     animation: logo-spin infinite 20s linear;
   }
 }
-

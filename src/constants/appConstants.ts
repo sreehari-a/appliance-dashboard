@@ -2,30 +2,30 @@ import theme from "../theme";
 
 export enum DeviceStatus {
   Offline = "Offline",
-  Online = "Online",
+  Online = "Online"
 }
 export enum DownloadStatus {
   Failed = "Failed",
   Cancelled = "Cancelled",
-  Scheduled="Scheduled",
+  Scheduled = "Scheduled",
   Downloading = "Downloading",
-  Succeeded = "Succeeded",
+  Succeeded = "Succeeded"
 }
 
 export enum BillingCycle {
   monthly = "Monthly",
   quarterly = "Quarterly",
-  annual = "Annual",
+  annual = "Annual"
 }
 
 export const DeviceStatusConfig = {
   [DeviceStatus.Offline]: {
     color: theme.colors.statusColors.darkRed,
-    label: "Offline",
+    label: "Offline"
   },
   [DeviceStatus.Online]: {
     color: theme.colors.statusColors.green,
-    label: "Online",
+    label: "Online"
   },
   DEFAULT: {
     color: "transparent",
@@ -36,23 +36,23 @@ export const DeviceStatusConfig = {
 export const DownloadStatusConfig = {
   [DownloadStatus.Failed]: {
     color: theme.colors.statusColors.darkRed,
-    label: "Failed",
+    label: "Failed"
   },
   [DownloadStatus.Cancelled]: {
     color: theme.colors.statusColors.yellow,
-    label: "Cancelled",
+    label: "Cancelled"
   },
   [DownloadStatus.Scheduled]: {
     color: theme.colors.statusColors.lightgrey,
-    label: "Scheduled",
+    label: "Scheduled"
   },
   [DownloadStatus.Downloading]: {
     color: theme.colors.statusColors.blue,
-    label: "Downloading",
+    label: "Downloading"
   },
   [DownloadStatus.Succeeded]: {
     color: theme.colors.statusColors.green,
-    label: "Downloaded",
+    label: "Downloaded"
   },
   DEFAULT: {
     color: "transparent",
@@ -63,7 +63,7 @@ export const DownloadStatusConfig = {
 export const BillingCycleMap = {
   [BillingCycle.monthly]: "Monthly",
   [BillingCycle.annual]: "Annual",
-  [BillingCycle.quarterly]: "Quarterly",
+  [BillingCycle.quarterly]: "Quarterly"
 };
 
 export const Labels = {
@@ -74,13 +74,13 @@ export const Labels = {
   BANDWIDTH: "Bandwidth",
   AVG_BANDWIDTH: "Average Bandwidth",
   PLAN_START_DATE: "Plan Start Date",
-  BILLING_CYCLE:"Billing Cycle",
+  BILLING_CYCLE: "Billing Cycle",
   DOWNLOAD_STATUS: "Download Status",
   OS_VERSION: "OS Version",
   STORAGE: "Storage Available"
-}
+};
 
 export const AppRoutes = {
   DEVICES_LIST: "/devices",
   DEVICE_INFO: "/devices/{0}"
-}
+};

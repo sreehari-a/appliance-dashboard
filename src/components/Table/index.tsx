@@ -5,7 +5,7 @@ import {
   getFilteredRowModel,
   getPaginationRowModel,
   PaginationState,
-  useReactTable,
+  useReactTable
 } from "@tanstack/react-table";
 import { useMemo, useState } from "react";
 import {
@@ -19,7 +19,7 @@ import {
   PageButton,
   ToolPanel,
   SearchFilterWrapper,
-  SearchInput,
+  SearchInput
 } from "./styled";
 import { TableProps } from "./types";
 import filterImage from "../../assets/Filter.svg";
@@ -37,7 +37,7 @@ export const TestIds = {
   COUNT_INPUT: "COUNT_INPUT",
   PAGE_NO_BUTTON: "PAGE_NO_BUTTON",
   PREVIOUS_PAGE_BUTTON: "PREVIOUS_PAGE_BUTTON",
-  NEXT_PAGE_BUTTON: "NEXT_PAGE_BUTTON",
+  NEXT_PAGE_BUTTON: "NEXT_PAGE_BUTTON"
 };
 
 function Table<T>({
@@ -55,14 +55,14 @@ function Table<T>({
     columns,
     state: {
       pagination,
-      globalFilter,
+      globalFilter
     },
     onPaginationChange: setPagination,
     onGlobalFilterChange: setGlobalFilter,
     globalFilterFn: filterFns.includesString,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
+    getPaginationRowModel: getPaginationRowModel()
   });
   const totalPages = table.getPageCount();
   const currentPage = table.getState().pagination.pageIndex + 1;
@@ -77,35 +77,23 @@ function Table<T>({
       endIndex = totalPages;
       startIndex = Math.max(1, endIndex - 4);
     }
-    return Array.from(
-      { length: endIndex - startIndex + 1 },
-      (_, index) => startIndex + index
-    );
+    return Array.from({ length: endIndex - startIndex + 1 }, (_, index) => startIndex + index);
   };
 
-  const pageButtons = useMemo(
-    () => getPageButtons(currentPage, totalPages),
-    [currentPage, totalPages]
-  );
+  const pageButtons = useMemo(() => getPageButtons(currentPage, totalPages), [currentPage, totalPages]);
   return (
     <CustomTable height={height}>
       <THead>
         <tr>
-          <CustomTableHead
-            padding={theme.padding.xl}
-            borderwidth={0}
-            colspan={columns.length || 1}
-          >
+          <CustomTableHead padding={theme.padding.xl} borderwidth={0} colspan={columns.length || 1}>
             <ToolPanel>
               <SearchFilterWrapper>
                 <SearchInput
-                  type="search"
+                  type='search'
                   placeholder={"Search"}
                   value={globalFilter}
                   onChange={(e: Event) => {
-                    setGlobalFilter(
-                      String((e?.target as HTMLInputElement)?.value || "")
-                    );
+                    setGlobalFilter(String((e?.target as HTMLInputElement)?.value || ""));
                   }}
                   data-testid={TestIds.SEARCH_INPUT}
                 />
@@ -115,16 +103,12 @@ function Table<T>({
                 </GreyButton>
               </SearchFilterWrapper>
               <PaginationWrapper>
-                <CountSelectorLabel color={theme.colors.textSecondary}>
-                  Show
-                </CountSelectorLabel>
+                <CountSelectorLabel color={theme.colors.textSecondary}>Show</CountSelectorLabel>
                 <CountSelectorInput
-                  className="select-css"
+                  className='select-css'
                   value={table.getState().pagination.pageSize}
                   onChange={(e: Event) => {
-                    table.setPageSize(
-                      Number((e?.target as HTMLInputElement)?.value)
-                    );
+                    table.setPageSize(Number((e?.target as HTMLInputElement)?.value));
                   }}
                   data-testid={TestIds.COUNT_INPUT}
                 >
@@ -177,12 +161,7 @@ function Table<T>({
                   data-testid={`${TestIds.TABLE_HEADER}-${header.id}`}
                 >
                   {header.isPlaceholder ? null : (
-                    <div>
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                    </div>
+                    <div>{flexRender(header.column.columnDef.header, header.getContext())}</div>
                   )}
                 </CustomTableHead>
               );
@@ -196,10 +175,7 @@ function Table<T>({
             <tr key={row.id}>
               {row.getVisibleCells().map((cell) => {
                 return (
-                  <Cell
-                    key={cell.id}
-                    data-testid={`${TestIds.TABLE_CELL}-${cell.id}`}
-                  >
+                  <Cell key={cell.id} data-testid={`${TestIds.TABLE_CELL}-${cell.id}`}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </Cell>
                 );

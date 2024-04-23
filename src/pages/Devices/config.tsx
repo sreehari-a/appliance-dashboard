@@ -1,12 +1,9 @@
 import { createColumnHelper, filterFns } from "@tanstack/react-table";
 import LocationView from "../../components/LocationView/locationView";
 import StatusText from "../../components/StatusText/statusText";
-import {
-  DeviceStatusConfig,
-  DownloadStatusConfig,
-} from "../../constants/appConstants";
+import { DeviceStatusConfig, DownloadStatusConfig } from "../../constants/appConstants";
 import { GreyButton } from "../../styled";
-import { DeviceBasicInfo, DeviceInfo } from "./types";
+import { DeviceBasicInfo } from "./types";
 
 const columnHelper = createColumnHelper<DeviceBasicInfo>();
 export const getColumns = (viewDeviceInfo: (serialNo: string) => void) => {
@@ -16,12 +13,15 @@ export const getColumns = (viewDeviceInfo: (serialNo: string) => void) => {
       cell: (info) => info.getValue(),
       size: 10.83
     }),
-    columnHelper.accessor((row) => `${row.theatreName} ${row.location.city} ${row.location.state} ${row.location.country}`, {
-      header: "Location",
-      cell: (prop) => <LocationView data={prop.row.original} />,
-      filterFn: filterFns.includesString,
-      size: 27.70
-    }),
+    columnHelper.accessor(
+      (row) => `${row.theatreName} ${row.location.city} ${row.location.state} ${row.location.country}`,
+      {
+        header: "Location",
+        cell: (prop) => <LocationView data={prop.row.original} />,
+        filterFn: filterFns.includesString,
+        size: 27.7
+      }
+    ),
     columnHelper.accessor("bandwidth", {
       header: "Bandwidth",
       cell: (prop) => (
@@ -30,18 +30,13 @@ export const getColumns = (viewDeviceInfo: (serialNo: string) => void) => {
           <div>{prop.row.original.avgBandwidth}</div>
         </>
       ),
-      size: 15.47,
+      size: 15.47
     }),
     columnHelper.accessor("deviceStatus", {
       header: "Status",
       cell: (prop) => {
         const deviceStatus = prop.getValue();
-        const config =
-          (deviceStatus &&
-            DeviceStatusConfig[
-              deviceStatus as keyof typeof DeviceStatusConfig
-            ]) ||
-          {};
+        const config = (deviceStatus && DeviceStatusConfig[deviceStatus as keyof typeof DeviceStatusConfig]) || {};
         return <StatusText color={config.color} label={config.label} />;
       },
       size: 12.84
@@ -51,11 +46,7 @@ export const getColumns = (viewDeviceInfo: (serialNo: string) => void) => {
       cell: (prop) => {
         const downloadStatus = prop.getValue();
         const config =
-          (downloadStatus &&
-            DownloadStatusConfig[
-              downloadStatus as keyof typeof DownloadStatusConfig
-            ]) ||
-          {};
+          (downloadStatus && DownloadStatusConfig[downloadStatus as keyof typeof DownloadStatusConfig]) || {};
         return <StatusText color={config.color} label={config.label} />;
       },
       size: 13.62
@@ -68,8 +59,16 @@ export const getColumns = (viewDeviceInfo: (serialNo: string) => void) => {
     }),
     columnHelper.accessor("view", {
       header: "",
-      cell: (prop) => <GreyButton onClick={() => {viewDeviceInfo(prop?.row?.original?.serialNo)}}>View</GreyButton>,
+      cell: (prop) => (
+        <GreyButton
+          onClick={() => {
+            viewDeviceInfo(prop?.row?.original?.serialNo);
+          }}
+        >
+          View
+        </GreyButton>
+      ),
       size: 7.12
-    }),
+    })
   ];
 };

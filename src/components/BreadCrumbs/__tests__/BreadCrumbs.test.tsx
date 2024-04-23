@@ -10,11 +10,10 @@ describe("Breadcrumb component", () => {
     { title: "Home", url: "/" },
     { title: "Products", url: "/products" },
     { title: "Category", url: "/products/category" },
-    { title: "Product Name", url: "/products/category/product-name" },
+    { title: "Product Name", url: "/products/category/product-name" }
   ];
 
-  const renderFunction = () =>
-    render(ThemeWrapper(<Breadcrumb crumbs={crumbs} />));
+  const renderFunction = () => render(ThemeWrapper(<Breadcrumb crumbs={crumbs} />));
 
   it("renders the correct number of breadcrumb links", () => {
     const { getAllByTestId } = renderFunction();

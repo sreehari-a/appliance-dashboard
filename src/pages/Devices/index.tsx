@@ -1,8 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import {
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Table from "../../components/Table";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import { getColumns } from "./config";
@@ -11,7 +8,7 @@ import { DeviceBasicInfo, StatusCount, StatusCountArray } from "./types";
 import { DownloadStatus, DownloadStatusConfig } from "../../constants/appConstants";
 import StatusText from "../../components/StatusText/statusText";
 import { useNavigate } from "react-router-dom";
-import { CustomFetchCall } from "../../utils";
+import { CustomFetchCall } from "../../mocks/utils";
 
 const queryClient = new QueryClient();
 
@@ -23,31 +20,33 @@ const Dashboard = () => {
 
   const { height: contentHeight } = useWindowDimensions(contentRef?.current);
   useEffect(() => {
-    getDevices()
+    getDevices();
   }, []);
 
   const transformCount = (statusCount: StatusCount) => {
-    const statusDisplayOrder = [DownloadStatus.Failed, DownloadStatus.Cancelled, DownloadStatus.Scheduled, DownloadStatus.Downloading, DownloadStatus.Succeeded];
-    const statuses: StatusCountArray = statusDisplayOrder.map((status: DownloadStatus) => (
-      {
-        downloadStatus: status,
-        count: statusCount[status] || 0,
-      }
-    ))
+    const statusDisplayOrder = [
+      DownloadStatus.Failed,
+      DownloadStatus.Cancelled,
+      DownloadStatus.Scheduled,
+      DownloadStatus.Downloading,
+      DownloadStatus.Succeeded
+    ];
+    const statuses: StatusCountArray = statusDisplayOrder.map((status: DownloadStatus) => ({
+      downloadStatus: status,
+      count: statusCount[status] || 0
+    }));
     setStatusCountArray(statuses);
-  }
+  };
   const getDevices = async () => {
-    const res = await CustomFetchCall(
-      `/api/v1/appliances`
-    );
-    const data: {data: DeviceBasicInfo[], metaData: {count: StatusCount}} = await res.json();
+    const res = await CustomFetchCall(`/api/v1/appliances`);
+    const data: { data: DeviceBasicInfo[]; metaData: { count: StatusCount } } = await res.json();
     setData(data?.data);
-    transformCount(data?.metaData.count)
+    transformCount(data?.metaData.count);
     return data;
   };
   const viewDeviceInfo = (serialNo: string) => {
     navigate(`/devices/${serialNo}`);
-  }
+  };
   const columns = getColumns(viewDeviceInfo);
   const tableHeight = contentHeight ? contentHeight - 125 : 0;
 
@@ -56,24 +55,17 @@ const Dashboard = () => {
       <Header>Devices</Header>
       <Content ref={contentRef}>
         <StatusCountSection>
-          {statusCountArray.map(({downloadStatus, count}) => {
-            const config =
-            (downloadStatus &&
-              DownloadStatusConfig[
-                downloadStatus as keyof typeof DownloadStatusConfig
-              ]) ||
-            {color: "transparent", label:  ""};
-            return(
-              <StatusText color={config?.color as string} label={`${count} ${config.label}`} />
-            )
+          {statusCountArray.map(({ downloadStatus, count }) => {
+            const config = (downloadStatus &&
+              DownloadStatusConfig[downloadStatus as keyof typeof DownloadStatusConfig]) || {
+              color: "transparent",
+              label: ""
+            };
+            return <StatusText color={config?.color as string} label={`${count} ${config.label}`} />;
           })}
         </StatusCountSection>
         <QueryClientProvider client={queryClient}>
-          <Table
-            height={tableHeight}
-            data={data}
-            columns={columns}
-          />
+          <Table height={tableHeight} data={data} columns={columns} />
         </QueryClientProvider>
       </Content>
     </DashboardContainer>

@@ -24,29 +24,29 @@ describe("Table component", () => {
     { name: "Rachel", age: 39, location: "Orlando" },
     { name: "Simon", age: 37, location: "Washington, D.C." },
     { name: "Tina", age: 32, location: "Philadelphia" },
-    { name: "Victor", age: 41, location: "San Antonio" },
+    { name: "Victor", age: 41, location: "San Antonio" }
   ];
 
   const columnHelper = createColumnHelper<(typeof data)[0]>();
   const columns = [
     columnHelper.accessor("name", {
       header: "Name",
-      cell: (info) => info.getValue(),
+      cell: (info) => info.getValue()
     }),
     columnHelper.accessor("age", {
       header: "Age",
-      cell: (info) => info.getValue(),
+      cell: (info) => info.getValue()
     }),
     columnHelper.accessor("location", {
       header: "Location",
-      cell: (info) => info.getValue(),
-    }),
+      cell: (info) => info.getValue()
+    })
   ];
 
   const labelMaps = {
     location: "Location",
     age: "Age",
-    name: "Name",
+    name: "Name"
   };
 
   test("renders table headers correctly", async () => {
@@ -55,9 +55,7 @@ describe("Table component", () => {
     const headerIds = ["name", "age", "location"];
     await headerIds.map(async (id) => {
       const element = await getByTestId(`${TestIds.TABLE_HEADER}-${id}`);
-      expect(element).toHaveTextContent(
-        labelMaps[id as keyof typeof labelMaps]
-      );
+      expect(element).toHaveTextContent(labelMaps[id as keyof typeof labelMaps]);
     });
 
     // expect(getByPlaceholderText("Search")).toBeInTheDocument();
@@ -68,21 +66,19 @@ describe("Table component", () => {
   test("renders table data correctly for firstpage", async () => {
     const { getByTestId } = render(ThemeWrapper(<Table columns={columns} data={data} />));
 
-    const firstPageItems = data.slice(0,9)
+    const firstPageItems = data.slice(0, 9);
 
     firstPageItems.map(async (item, index) => {
       Object.keys(item).map(async (key) => {
-        expect(
-          await getByTestId(`${TestIds.TABLE_CELL}-${index}_${key}`)
-        ).toHaveTextContent(item[key as keyof typeof item]);
+        expect(await getByTestId(`${TestIds.TABLE_CELL}-${index}_${key}`)).toHaveTextContent(
+          item[key as keyof typeof item]
+        );
       });
     });
   });
 
   test("allows searching", async () => {
-    const { getByTestId, getByText, queryByText } = render(
-      ThemeWrapper(<Table columns={columns} data={data} />)
-    );
+    const { getByTestId, getByText, queryByText } = render(ThemeWrapper(<Table columns={columns} data={data} />));
 
     const searchInput = getByTestId(TestIds.SEARCH_INPUT);
     fireEvent.change(searchInput, { target: { value: "Alice" } });
@@ -97,13 +93,13 @@ describe("Table component", () => {
     const secondPageButton = getByTestId(`${TestIds.PAGE_NO_BUTTON}-2`);
     fireEvent.click(secondPageButton);
 
-    const secondPageItems = data.slice(10,19)
+    const secondPageItems = data.slice(10, 19);
 
     secondPageItems.map(async (item, index) => {
       Object.keys(item).map(async (key) => {
-        expect(
-          await getByTestId(`${TestIds.TABLE_CELL}-${10+index}_${key}`)
-        ).toHaveTextContent(item[key as keyof typeof item]);
+        expect(await getByTestId(`${TestIds.TABLE_CELL}-${10 + index}_${key}`)).toHaveTextContent(
+          item[key as keyof typeof item]
+        );
       });
     });
   });
@@ -115,28 +111,26 @@ describe("Table component", () => {
     const nextPageButton = getByTestId(TestIds.NEXT_PAGE_BUTTON);
     fireEvent.click(nextPageButton);
 
-    const secondPageItems = data.slice(10,19)
+    const secondPageItems = data.slice(10, 19);
 
     secondPageItems.map(async (item, index) => {
       Object.keys(item).map(async (key) => {
-        expect(
-          await getByTestId(`${TestIds.TABLE_CELL}-${10+index}_${key}`)
-        ).toHaveTextContent(item[key as keyof typeof item]);
+        expect(await getByTestId(`${TestIds.TABLE_CELL}-${10 + index}_${key}`)).toHaveTextContent(
+          item[key as keyof typeof item]
+        );
       });
     });
   });
   test("on changing count correct items are shown", async () => {
     const { getByTestId } = render(ThemeWrapper(<Table columns={columns} data={data} />));
 
-    fireEvent.change(getByTestId(TestIds.COUNT_INPUT), { target: { value: 20 } })
+    fireEvent.change(getByTestId(TestIds.COUNT_INPUT), { target: { value: 20 } });
 
-    const firstTwentyItems = data.slice(0,19)
+    const firstTwentyItems = data.slice(0, 19);
 
     firstTwentyItems.map(async (item, index) => {
       Object.keys(item).map(async (key) => {
-        expect(
-          await getByTestId(`${TestIds.TABLE_CELL}-${index}_${key}`)
-        ).toHaveTextContent(item[key]);
+        expect(await getByTestId(`${TestIds.TABLE_CELL}-${index}_${key}`)).toHaveTextContent(item[key]);
       });
     });
   });

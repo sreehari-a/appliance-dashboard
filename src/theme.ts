@@ -4,7 +4,7 @@ const theme = {
     md: "14px",
     lg: "16px",
     xl: "20px",
-    xxl: "28px",
+    xxl: "28px"
   },
   colors: {
     background: "#F6F8FA",
@@ -17,11 +17,11 @@ const theme = {
     grey: "#E6ECF0",
     lightBlue: "#EBF5FF",
     statusColors: {
-        darkRed: "#CF1423",
-        green: "#0F7C2E",
-        yellow: "#EFA200",
-        lightgrey: "#B2B2B2",
-        blue: "#1E81E3"
+      darkRed: "#CF1423",
+      green: "#0F7C2E",
+      yellow: "#EFA200",
+      lightgrey: "#B2B2B2",
+      blue: "#1E81E3"
     }
   },
   padding: {
@@ -31,17 +31,17 @@ const theme = {
     lg: "14px",
     xl: "16px",
     xxl: "20px",
-    xxxl:"24px",
+    xxxl: "24px",
     xxxxl: "32px"
   },
   margin: {
     xs: "4px",
-    sm:"8px",
+    sm: "8px",
     md: "10px",
     lg: "12px",
     xl: "16px",
     xxl: "20px",
-    xxxl: "24px",
+    xxxl: "24px"
   },
   borderRadius: {
     sm: "4px",
@@ -53,7 +53,7 @@ const theme = {
   border: {
     normal: "1px solid #cfdce5",
     divider: "2px solid #F5F8FA"
-},
+  },
   boxShadow: {
     shadowLight: "0px 2px 4px 0px #0426520f",
     shadowDark: "0px 2px 2px 0px #0000000F"
@@ -67,9 +67,9 @@ const theme = {
     xxxl: "40px"
   },
   fontWeight: {
-    thin:200,
+    thin: 200,
     regular: 400,
-    bold: 500,
+    bold: 500
   }
 };
 

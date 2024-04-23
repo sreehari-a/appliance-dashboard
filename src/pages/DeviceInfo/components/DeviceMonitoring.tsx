@@ -8,9 +8,7 @@ export const DeviceMonitoring = ({ appliance }: DeviceMonitoringProps) => {
   return (
     <DeviceMontoringSection>
       {DeviceInfoFields.map(({ key, label, getValue }) => {
-        const value = getValue
-          ? getValue(appliance as DeviceInfo)
-          : appliance?.[key as keyof typeof appliance];
+        const value = getValue ? getValue(appliance as DeviceInfo) : appliance?.[key as keyof typeof appliance];
         return <Field dataTestId={label} label={label} value={value as string} />;
       })}
     </DeviceMontoringSection>

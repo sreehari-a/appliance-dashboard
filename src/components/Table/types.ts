@@ -4,8 +4,8 @@ export interface TableProps<T> {
   columns: ColumnDef<T, any>[];
   height?: number;
   pagination?: {
-    pageIndex: number,
-    pageSize: number,
+    pageIndex: number;
+    pageSize: number;
   };
   countOptions?: number[];
 }
