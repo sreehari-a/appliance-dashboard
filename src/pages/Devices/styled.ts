@@ -29,4 +29,5 @@ export const StatusCountSection =  styled.div`
   margin-bottom: ${props => props.theme.fontSize.xl};
   display: flex;
   gap: 1rem;
+  overflow: auto;
 `

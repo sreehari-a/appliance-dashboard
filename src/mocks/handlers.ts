@@ -1,5 +1,4 @@
 import { http, HttpResponse } from "msw";
-import { DownloadStatus } from "../constants/appConstants";
 import { appliances } from "../json/appliances";
 import { DeviceBasicInfo, DeviceInfo, StatusCount} from "../pages/Devices/types";
 

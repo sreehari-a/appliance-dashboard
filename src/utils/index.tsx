@@ -1,7 +1,5 @@
-import { render } from "@testing-library/react";
-import { isValidElement } from "react";
-import { createMemoryRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import { worker } from "../mocks/browser";
 import { Location } from "../pages/Devices/types";
 import theme from "../theme";
 
@@ -40,6 +38,13 @@ export const ThemeWrapper = (element: JSX.Element) => {
           {element}
       </ThemeProvider>
   )
+}
+
+export const CustomFetchCall =  async(url: string, init?: RequestInit) => {
+  await worker.start();
+  const res = await  fetch(url, init);
+  worker.resetHandlers();
+  return res;
 }
 
 export default {

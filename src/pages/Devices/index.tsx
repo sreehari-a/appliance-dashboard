@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import {
   QueryClient,
   QueryClientProvider,
-  useQuery,
 } from "@tanstack/react-query";
 import Table from "../../components/Table";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
@@ -12,6 +11,7 @@ import { DeviceBasicInfo, StatusCount, StatusCountArray } from "./types";
 import { DownloadStatus, DownloadStatusConfig } from "../../constants/appConstants";
 import StatusText from "../../components/StatusText/statusText";
 import { useNavigate } from "react-router-dom";
+import { CustomFetchCall } from "../../utils";
 
 const queryClient = new QueryClient();
 
@@ -37,7 +37,7 @@ const Dashboard = () => {
     setStatusCountArray(statuses);
   }
   const getDevices = async () => {
-    const res = await fetch(
+    const res = await CustomFetchCall(
       `/api/v1/appliances`
     );
     const data: {data: DeviceBasicInfo[], metaData: {count: StatusCount}} = await res.json();
